@@ -20,6 +20,6 @@ jobs:
         ruby-version: '3.1.0'
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run test
-      run: ruby ./test/sleep.rb
+      run: ruby ./test/sleep.rb ${{ github.event.pull_request.title }}
       env:
         TEST_DELAY_TIME_SECONDS: ${{ secrets.TEST_DELAY_TIME_SECONDS }}
