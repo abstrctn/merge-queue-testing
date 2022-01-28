@@ -1,0 +1,25 @@
+name: Fake CI
+
+on:
+  push:
+    branches:
+      - main
+      - gh-readonly-queue/main/**
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1.0'
+        bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+    - name: Run test
+      run: ruby ./test/sleep.rb
+      env:
+        TEST_DELAY_TIME_SECONDS: ${{ secrets.TEST_DELAY_TIME_SECONDS }}
