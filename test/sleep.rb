@@ -1,3 +1,5 @@
+puts "HEAD_REF is equal to 'ENV["HEAD_REF"]'" if ENV["HEAD_REF"]
+
 if ENV["PR_NAME"] && ENV["PR_NAME"].downcase.include?("fail")
   raise "Manually failing PR due to PR name"
 # elsif ENV["PR_NUMBER"] && ENV["PR_NUMBER"].to_i.odd?
