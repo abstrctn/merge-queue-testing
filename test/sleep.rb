@@ -1,13 +1,12 @@
 # Debugging setup values
 puts "REF is set to '#{ENV["REF"]}'" if ENV["REF"]
 puts "PR_TITLE is set to '#{ENV["PR_TITLE"]}'" if ENV["PR_TITLE"]
+puts "HEAD_REF is set to '#{ENV["HEAD_REF"]}'" if ENV["HEAD_REF"]
 
 manual_failure = nil
 
 # Decide if setup values mean test should fail
-#
-# PR_TITLE is empty for PR's in the merge queue 🤷🏼
-if ENV["REF"] && (ENV["PR_TITLE"].downcase.include?("fail in the queue") || ENV["PR_TITLE"].empty?)
+if ENV["REF"] && ENV["HEAD_REF"].downcase.include?("fail-in-the-queue")
   # REF looks like 'refs/heads/gh-readonly-queue/main/pr-4-14e30f6938f96698309aec5bb5a293b0f5343e8a'
   if ENV["REF"].downcase.include?("refs/heads/gh-readonly-queue")
     manual_failure = "Manually failing in the merge queue due to PR title" 
