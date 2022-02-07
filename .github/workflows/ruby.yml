@@ -3,10 +3,10 @@ name: Fake CI
 on:
   push:
     branches:
-#       - main
+      - main
       - gh-readonly-queue/main/**
-#   pull_request:
-#     branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test:
