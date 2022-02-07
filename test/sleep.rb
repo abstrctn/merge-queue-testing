@@ -1,7 +1,7 @@
-pr_name = ARGV.join(" ")
-
-if pr_name && pr_name.downcase.include?("fail")
+if ENV["PR_NAME"] && ENV["PR_NAME"].downcase.include?("fail")
   raise "Manually failing PR due to PR name"
+# elsif ENV["PR_NUMBER"] && ENV["PR_NUMBER"].to_i.odd?
+#   raise "Manually failing PR due to PR number"
 elsif ENV["TEST_DELAY_TIME_SECONDS"].to_s.empty?
   puts "Using default sleep time"
   sleep 10
