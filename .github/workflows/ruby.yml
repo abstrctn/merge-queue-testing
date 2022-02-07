@@ -25,7 +25,7 @@ jobs:
         TEST_DELAY_TIME_SECONDS: ${{ secrets.TEST_DELAY_TIME_SECONDS }}
         PR_TITLE: ${{ github.event.pull_request.title }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
-        HEAD_REF: ${{ github.head_ref }}
+        REF: ${{ github.ref }}
         
   not_required_test:
     runs-on: ubuntu-latest
