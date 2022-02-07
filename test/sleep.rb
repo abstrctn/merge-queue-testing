@@ -1,6 +1,6 @@
 # Debugging setup values
 puts "REF is equal to '#{ENV["REF"]}'" if ENV["REF"]
-puts "PR_TITLE is equal to '#{ENV["PR_TITLE"]}" if ENV["PR_TITLE"]
+puts "PR_TITLE is equal to '#{ENV["PR_TITLE"]}'" if ENV["PR_TITLE"]
 
 # Decide if setup values mean test should fail
 #
