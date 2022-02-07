@@ -1,5 +1,8 @@
+# Debugging setup values
 puts "REF is equal to '#{ENV["REF"]}'" if ENV["REF"]
+puts "PR_NAME is equal to '#{ENV["PR_NAME"]}" if ENV["PR_NAME"]
 
+# Decide if setup values mean test should fail
 if ENV["PR_NAME"] && ENV["REF"] && ENV["PR_NAME"].downcase.include?("fail in the queue")
   # REF is equal to 'refs/heads/gh-readonly-queue/main/pr-4-14e30f6938f96698309aec5bb5a293b0f5343e8a'
   if ENV["REF"].downcase.include?("refs/heads/gh-readonly-queue")
@@ -9,6 +12,7 @@ elsif ENV["PR_NAME"] && ENV["PR_NAME"].downcase.include?("fail")
   raise "Manually failing PR due to PR name"
 end
 
+# Set the sleep time
 if ENV["TEST_DELAY_TIME_SECONDS"].to_s.empty?
   puts "Using default sleep time"
   sleep 10
