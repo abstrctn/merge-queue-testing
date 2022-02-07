@@ -1,4 +1,4 @@
-puts "HEAD_REF is equal to 'ENV["HEAD_REF"]'" if ENV["HEAD_REF"]
+puts "HEAD_REF is equal to '#{ENV["HEAD_REF"]}'" if ENV["HEAD_REF"]
 
 if ENV["PR_NAME"] && ENV["PR_NAME"].downcase.include?("fail")
   raise "Manually failing PR due to PR name"
