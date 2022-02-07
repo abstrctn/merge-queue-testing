@@ -26,6 +26,7 @@ jobs:
         PR_TITLE: ${{ github.event.pull_request.title }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
         REF: ${{ github.ref }}
+        HEAD_REF: ${{ github.head_ref }}
         
   not_required_test:
     runs-on: ubuntu-latest
