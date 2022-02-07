@@ -2,14 +2,17 @@
 puts "REF is set to '#{ENV["REF"]}'" if ENV["REF"]
 puts "PR_TITLE is set to '#{ENV["PR_TITLE"]}'" if ENV["PR_TITLE"]
 puts "HEAD_REF is set to '#{ENV["HEAD_REF"]}'" if ENV["HEAD_REF"]
+puts "PR_NUMBER is set to '#{ENV["PR_NUMBER"]}'" if ENV["PR_NUMBER"]
 
 manual_failure = nil
 
 # Decide if setup values mean test should fail
-if ENV["REF"] && ENV["HEAD_REF"].downcase.include?("fail-in-the-queue")
-  # REF looks like 'refs/heads/gh-readonly-queue/main/pr-4-14e30f6938f96698309aec5bb5a293b0f5343e8a'
-  if ENV["REF"].downcase.include?("refs/heads/gh-readonly-queue")
-    manual_failure = "Manually failing in the merge queue due to PR title" 
+#
+# REF looks like 'refs/heads/gh-readonly-queue/main/pr-4-14e30f6938f96698309aec5bb5a293b0f5343e8a'
+if ENV["REF"] && ENV["REF"].downcase.include?("refs/heads/gh-readonly-queue")
+  
+  if ENV["PR_NUMBER"] && ENV["PR_NUMBER"].to_i.odd?
+    manual_failure = "Manually failing in the merge queue due to PR title and PR number" 
   end
 elsif ENV["PR_TITLE"] && ENV["PR_TITLE"].downcase.include?("fail the pr")
   manual_failure = "Manually failing PR due to PR title"
