@@ -16,7 +16,7 @@ manual_failure = nil
 #
 # REF looks like 'refs/heads/gh-readonly-queue/main/pr-4-14e30f6938f96698309aec5bb5a293b0f5343e8a'
 if ENV["REF"] && ENV["REF"].downcase.include?("refs/heads/gh-readonly-queue")
-  if ENV["PR_NUMBER"] && ENV["PR_NUMBER"].to_i.odd?
+  if ENV["PR_NUMBER"] && ENV["FAIL_ODD_PRS"].downcase == "true" && ENV["PR_NUMBER"].to_i.odd?
     manual_failure = "Manually failing in the merge queue due to PR title and PR number" 
   end
 elsif ENV["PR_TITLE"] && ENV["PR_TITLE"].downcase.include?("fail the pr")
