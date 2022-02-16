@@ -43,3 +43,4 @@ jobs:
       run: ruby ./test/fail.rb
       env:
         TEST_DELAY_TIME_SECONDS: ${{ secrets.TEST_DELAY_TIME_SECONDS }}
+        NOT_REQUIRED_TEST_FAILING: ${{ secrets.NOT_REQUIRED_TEST_FAILING }}
