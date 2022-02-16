@@ -23,6 +23,7 @@ jobs:
       run: ruby ./test/sleep.rb
       env:
         TEST_DELAY_TIME_SECONDS: ${{ secrets.TEST_DELAY_TIME_SECONDS }}
+        FAIL_ODD_PRS: ${{ secrets.FAIL_ODD_PRS }}
         PR_TITLE: ${{ github.event.pull_request.title }}
         PR_NUMBER: ${{ github.event.pull_request.number }}
         REF: ${{ github.ref }}
