@@ -9,6 +9,8 @@ There is a placeholder CI suite set up for the main branch of this repo in GH ac
 - Test suite 1 (required):
   - The test suite will will read the `TEST_DELAY_TIME_SECONDS` actions secret or sleep for a default of 10s.
   - If you include `fail the pr` in the PR title, the build will fail for the PR and it will never hit the merge queue. 
-  - If the PR has an odd number, it will fail in the merge queue. ⚠️
+  - If the PR has an odd number and `FAIL_ODD_PRS` is set to `true`, it will fail in the merge queue. ⚠️
 - Test suite 2 (not required)
-  - This test suite will always fail, and is not required
+  - This test suite is not required
+  - The test will also read the same `TEST_DELAY_TIME_SECONDS` env var as Test suite 1
+  - If `NOT_REQUIRED_TEST_FAILING` is set to `true`, this test will always fail (after the delay time)
