@@ -17,3 +17,4 @@ There is a placeholder CI suite set up for the main branch of this repo in GH ac
 - Test suite 3
   - This test suite runs a math calculation to enable more complex conflicts between PRs
   - The test will respect the same `TEST_DELAY_TIME_SECONDS` env var as the other test suites
+  - To run this test locally, `bundle install` then use `bundle exec ruby ./test/math_test.rb`
