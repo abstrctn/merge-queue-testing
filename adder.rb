@@ -1,5 +1,9 @@
 class Adder
   def add(a, b)
-    a.to_i + b.to_i
+    if !a.is_a?(Integer) || !b.is_a?(Integer)
+      raise ArgumentError, "Arguments must be integers"
+    end
+
+    a + b
   end
 end
