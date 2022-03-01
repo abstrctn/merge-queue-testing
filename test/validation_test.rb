@@ -14,4 +14,10 @@ describe Adder do
       end
     end
   end
+
+  describe "#add" do
+    it "casts non-integer values" do
+      assert_equal 0, @adder.add("bleep", "bloop")
+    end
+  end
 end
