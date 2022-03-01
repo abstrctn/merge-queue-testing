@@ -15,6 +15,6 @@ There is a placeholder CI suite set up for the main branch of this repo in GH ac
   - The test will respect the same `TEST_DELAY_TIME_SECONDS` env var as the other test suites
   - If `NOT_REQUIRED_TEST_FAILING` is set to `true`, this test will always fail (after the delay time)
 - Test suite 3
-  - This test suite runs a math calculation to enable more complex conflicts between PRs
+  - This test suite uses a math calculation class to enable more complex conflicts between PRs
   - The test will respect the same `TEST_DELAY_TIME_SECONDS` env var as the other test suites
-  - To run this test locally, `bundle install` then use `bundle exec ruby ./test/math_test.rb`
+  - To run this test locally, `bundle install` then use `bundle exec ruby ./test/math_test.rb && bundle exec ruby ./test/validation_test.rb`
