@@ -11,13 +11,5 @@ describe Adder do
     it "adds two values" do
       assert_equal 3, @adder.add(1, 2)
     end
-
-    it "raises for invalid agruments" do
-      error = assert_raises(ArgumentError) do
-        @adder.add("bleep", "bloop")
-      end
-
-      assert_equal "Arguments must be integers", error.message
-    end
   end
 end
